@@ -27,11 +27,7 @@ def home2():
 
 @app.route("/resultText", methods=['GET', 'POST'])
 def res():
-    session.pop("messages", None)
-    if request.method == "GET":
-        return redirect(url_for('index'))
-
-    elif request.method == "POST":
+    if request.method == "POST":
         result = request.form.get('userInput')
         resultList = [result]
         mes, out = newIdentifier.checkMessage(resultList)
@@ -51,12 +47,8 @@ def res():
 
 
 @app.route("/resultFile", methods=['GET', 'POST'])
-def reslt():
-    session.pop("messages", None)
-    if request.method == "GET":
-        return redirect(url_for('index'))
-
-    else:
+def result():
+    if request.method == "POST":
         document = request.files["doc"]
         document.save(document.filename)
         mes, out = newIdentifier.checkDocument(document.filename)
