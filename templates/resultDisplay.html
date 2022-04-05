@@ -18,7 +18,7 @@
         }
         fieldset{
             margin:auto;
-            width:50%;
+            width:70%;
             border-radius: 10px;
             border: 2px solid white;
         }
@@ -43,7 +43,7 @@
         <b> We found the following results: </b>
     </div>
     
-    <fieldset style="width:500px;">
+    <fieldset>
         <ol id="mes">
         {% for message in session["messages"] %}
         <li>{{ message }}</li><br>
